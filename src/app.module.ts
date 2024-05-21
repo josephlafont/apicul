@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { TasksStatusModule } from './tasks_status/tasks_status.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -14,7 +15,7 @@ import { UserModule } from './user/user.module';
     database: 'apicul',
     entities: [],
     synchronize: true,
-  }), UserModule,],
+  }), UserModule, TasksStatusModule,],
   controllers: [AppController],
   providers: [AppService],
 })

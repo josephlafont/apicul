@@ -1,4 +1,5 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Task } from 'src/tasks/entities/task.entity';
+import { Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
@@ -16,4 +17,6 @@ export class User {
     email: string;
     @Column({ default: true })
     isActive: boolean;
+    @OneToMany(() => Task, task => task.user)
+    tasks: Task[];
 }

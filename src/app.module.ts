@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { TasksStatusModule } from './tasks_status/tasks_status.module';
+import { User } from './user/entities/user.entity';
+import { TasksStatus } from './tasks_status/entities/tasks_status.entity';
+import { TasksCategoriesModule } from './tasks_categories/tasks_categories.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -13,9 +16,9 @@ import { TasksStatusModule } from './tasks_status/tasks_status.module';
     username: 'root',
     password: '',
     database: 'apicul',
-    entities: [],
+    entities: [User, TasksStatus],
     synchronize: true,
-  }), UserModule, TasksStatusModule,],
+  }), UserModule, TasksStatusModule, TasksCategoriesModule,],
   controllers: [AppController],
   providers: [AppService],
 })

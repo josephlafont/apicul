@@ -7,6 +7,7 @@ import { TasksStatusModule } from './tasks_status/tasks_status.module';
 import { User } from './user/entities/user.entity';
 import { TasksStatus } from './tasks_status/entities/tasks_status.entity';
 import { TasksCategoriesModule } from './tasks_categories/tasks_categories.module';
+import { TasksCategory } from './tasks_categories/entities/tasks_category.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -16,7 +17,7 @@ import { TasksCategoriesModule } from './tasks_categories/tasks_categories.modul
     username: 'root',
     password: '',
     database: 'apicul',
-    entities: [User, TasksStatus],
+    entities: [User, TasksStatus, TasksCategory],
     synchronize: true,
   }), UserModule, TasksStatusModule, TasksCategoriesModule,],
   controllers: [AppController],
